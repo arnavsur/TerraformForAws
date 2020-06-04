@@ -2,12 +2,12 @@ terraform {
   backend "s3" {
     bucket = "octopus-terraform-releasetour"
     key    = "releasetour.tfstate"
-    region = "ap-southeast-1"
+    region = "us-east-1"
   }
 }
 
 resource "aws_instance" "example" {
-  ami = "ami-e3a2f79f"
+  ami = "ami-04a0ee204b44cc91a"
 
   subnet_id                   = "${var.aws-subnet-id}"
   vpc_security_group_ids      = ["${var.aws-vpc-security-group-id}"]
@@ -23,8 +23,8 @@ resource "aws_instance" "example" {
   }
 
   tags {
-    Name = "Octopus 3.18 Release Tour"
-    OwnerContact = "RobPearson"
+    Name = "OctopusTerraformDeployment"
+    OwnerContact = "Arnav"
   }
 
 }
